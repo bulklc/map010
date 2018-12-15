@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/001_districts_1.js"></script>
+        <script src="data/002_rail_2.js"></script>
+        <script src="data/006_bike_lanes_3.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        var layer_OpenStreetMap_0 = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0
+        });
+        layer_OpenStreetMap_0.addTo(map);
+        map.addLayer(layer_OpenStreetMap_0);
+        function pop_001_districts_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Title</strong><br />' + (feature.properties['Title'] !== null ? Autolinker.link(String(feature.properties['Title'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Council Me</strong><br />' + (feature.properties['Council Me'] !== null ? Autolinker.link(String(feature.properties['Council Me'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>photo</strong><br />' + (feature.properties['photo'] !== null ? Autolinker.link(String(feature.properties['photo'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Phone</strong><br />' + (feature.properties['Phone'] !== null ? Autolinker.link(String(feature.properties['Phone'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? Autolinker.link(String(feature.properties['Email'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>BPAC Rep</strong><br />' + (feature.properties['BPAC Rep'] !== null ? Autolinker.link(String(feature.properties['BPAC Rep'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>BPAC Email</strong><br />' + (feature.properties['BPAC Email'] !== null ? Autolinker.link(String(feature.properties['BPAC Email'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>photo_2</strong><br />' + (feature.properties['photo_2'] !== null ? Autolinker.link(String(feature.properties['photo_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>District</strong><br />' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_001_districts_1_0(feature) {
+            if (feature.properties['District'] >= 1.000000 && feature.properties['District'] <= 1.857143 ) {
+                return {
+                pane: 'pane_001_districts_1',
+                opacity: 1,
+                color: 'rgba(56,128,54,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,0.25098039215686274)',
+            }
+            }
+            if (feature.properties['District'] >= 1.857143 && feature.properties['District'] <= 2.714286 ) {
+                return {
+                pane: 'pane_001_districts_1',
+                opacity: 1,
+                color: 'rgba(56,128,54,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(195,100,40,0.25098039215686274)',
+            }
+            }
+            if (feature.properties['District'] >= 2.714286 && feature.properties['District'] <= 3.571429 ) {
+                return {
+                pane: 'pane_001_districts_1',
+                opacity: 1,
+                color: 'rgba(56,128,54,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(134,74,80,0.25098039215686274)',
+            }
+            }
+            if (feature.properties['District'] >= 3.571429 && feature.properties['District'] <= 4.428571 ) {
+                return {
+                pane: 'pane_001_districts_1',
+                opacity: 1,
+                color: 'rgba(56,128,54,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(73,47,120,0.25098039215686274)',
+            }
+            }
+            if (feature.properties['District'] >= 4.428571 && feature.properties['District'] <= 5.285714 ) {
+                return {
+                pane: 'pane_001_districts_1',
+                opacity: 1,
+                color: 'rgba(56,128,54,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,40,89,0.25098039215686274)',
+            }
+            }
+            if (feature.properties['District'] >= 5.285714 && feature.properties['District'] <= 6.142857 ) {
+                return {
+                pane: 'pane_001_districts_1',
+                opacity: 1,
+                color: 'rgba(56,128,54,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(176,33,58,0.25098039215686274)',
+            }
+            }
+            if (feature.properties['District'] >= 6.142857 && feature.properties['District'] <= 7.000000 ) {
+                return {
+                pane: 'pane_001_districts_1',
+                opacity: 1,
+                color: 'rgba(56,128,54,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,0.25098039215686274)',
+            }
+            }
+        }
+        map.createPane('pane_001_districts_1');
+        map.getPane('pane_001_districts_1').style.zIndex = 401;
+        map.getPane('pane_001_districts_1').style['mix-blend-mode'] = 'normal';
+        var layer_001_districts_1 = new L.geoJson(json_001_districts_1, {
+            attribution: '',
+            pane: 'pane_001_districts_1',
+            onEachFeature: pop_001_districts_1,
+            style: style_001_districts_1_0,
+        });
+        bounds_group.addLayer(layer_001_districts_1);
+        map.addLayer(layer_001_districts_1);
+        function pop_002_rail_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>id</strong><br />' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_002_rail_2_0() {
+            return {
+                pane: 'pane_002_rail_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        function style_002_rail_2_1() {
+            return {
+                pane: 'pane_002_rail_2',
+            }
+        }
+        map.createPane('pane_002_rail_2');
+        map.getPane('pane_002_rail_2').style.zIndex = 402;
+        map.getPane('pane_002_rail_2').style['mix-blend-mode'] = 'normal';
+        var layer_002_rail_2 = new L.geoJson.multiStyle(json_002_rail_2, {
+            attribution: '',
+            pane: 'pane_002_rail_2',
+            onEachFeature: pop_002_rail_2,
+            styles: [style_002_rail_2_0,style_002_rail_2_1,]
+        });
+        bounds_group.addLayer(layer_002_rail_2);
+        map.addLayer(layer_002_rail_2);
+        function pop_006_bike_lanes_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CLASS'] !== null ? Autolinker.link(String(feature.properties['CLASS'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_006_bike_lanes_3_0(feature) {
+            switch(String(feature.properties['CLASS'])) {
+                case 'I':
+                    return {
+                pane: 'pane_006_bike_lanes_3',
+                opacity: 1,
+                color: 'rgba(22,102,8,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+                    break;
+                case 'II':
+                    return {
+                pane: 'pane_006_bike_lanes_3',
+                opacity: 1,
+                color: 'rgba(42,34,141,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+                    break;
+                case 'III':
+                    return {
+                pane: 'pane_006_bike_lanes_3',
+                opacity: 1,
+                color: 'rgba(174,167,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_006_bike_lanes_3');
+        map.getPane('pane_006_bike_lanes_3').style.zIndex = 403;
+        map.getPane('pane_006_bike_lanes_3').style['mix-blend-mode'] = 'normal';
+        var layer_006_bike_lanes_3 = new L.geoJson(json_006_bike_lanes_3, {
+            attribution: '',
+            pane: 'pane_006_bike_lanes_3',
+            onEachFeature: pop_006_bike_lanes_3,
+            style: style_006_bike_lanes_3_0,
+        });
+        bounds_group.addLayer(layer_006_bike_lanes_3);
+        map.addLayer(layer_006_bike_lanes_3);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'006_bike_lanes<br /><table><tr><td style="text-align: center;"><img src="legend/006_bike_lanes_3_I0.png" /></td><td>I</td></tr><tr><td style="text-align: center;"><img src="legend/006_bike_lanes_3_II1.png" /></td><td>II</td></tr><tr><td style="text-align: center;"><img src="legend/006_bike_lanes_3_III2.png" /></td><td>III</td></tr></table>': layer_006_bike_lanes_3,'<img src="legend/002_rail_2.png" /> 002_rail': layer_002_rail_2,'001_districts<br /><table><tr><td style="text-align: center;"><img src="legend/001_districts_1_1001860.png" /></td><td> 1.00 - 1.86 </td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_1862711.png" /></td><td> 1.86 - 2.71 </td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_2713572.png" /></td><td> 2.71 - 3.57 </td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_3574433.png" /></td><td> 3.57 - 4.43 </td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_4435294.png" /></td><td> 4.43 - 5.29 </td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_5296145.png" /></td><td> 5.29 - 6.14 </td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_6147006.png" /></td><td> 6.14 - 7.00 </td></tr></table>': layer_001_districts_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
