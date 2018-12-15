@@ -62,8 +62,12 @@
                 map.fitBounds(bounds_group.getBounds());
             }
         }
-        var layer_OpenStreetMap_0 = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            opacity: 1.0
+        var basemap0 = L.tileLayer('https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+     
+        //var layer_OpenStreetMap_0 = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //    opacity: 1.0
         });
         layer_OpenStreetMap_0.addTo(map);
         map.addLayer(layer_OpenStreetMap_0);
