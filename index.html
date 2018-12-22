@@ -76,8 +76,8 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2"><strong>Title</strong><br />' + (feature.properties['Title'] !== null ? Autolinker.link(String(feature.properties['Title'])) : '') + '</td>\
+                     <tr>\
+                        <td colspan="2">' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Council Me'] !== null ? Autolinker.link(String(feature.properties['Council Me'])) : '') + '</td>\
@@ -100,9 +100,7 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['photo_2'] !== null ? Autolinker.link(String(feature.properties['photo_2'])) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
-                    </tr>\
+               
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
