@@ -76,14 +76,14 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-                     <tr>\
-                        <td colspan="2">' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
+                    <tr>\
+                        <td colspan="2"><strong>Title</strong><br />' + (feature.properties['Title'] !== null ? Autolinker.link(String(feature.properties['Title'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Council Me'] !== null ? Autolinker.link(String(feature.properties['Council Me'])) : '') + '</td>\
+                        <td colspan="2"><strong>Council Me</strong><br />' + (feature.properties['Council Me'] !== null ? Autolinker.link(String(feature.properties['Council Me'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>photo</strong><br />' + (feature.properties['photo'] !== null ? Autolinker.link(String(feature.properties['photo'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['photo'] !== null ? Autolinker.link(String(feature.properties['photo'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Phone</strong><br />' + (feature.properties['Phone'] !== null ? Autolinker.link(String(feature.properties['Phone'])) : '') + '</td>\
@@ -100,7 +100,9 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['photo_2'] !== null ? Autolinker.link(String(feature.properties['photo_2'])) : '') + '</td>\
                     </tr>\
-               
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
+                    </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
