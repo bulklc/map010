@@ -6,7 +6,7 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <style>
         html, body, #map {
@@ -22,7 +22,7 @@
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.js"></script>
         <script src="js/multi-style-layer.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
@@ -55,19 +55,14 @@
         })
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
-        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
             if (bounds_group.getLayers().length) {
                 map.fitBounds(bounds_group.getBounds());
             }
         }
-        var layer_OpenStreetMap_0 = L.tileLayer('https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-            maxZoom: 28
-     
-        //var layer_OpenStreetMap_0 = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        //    opacity: 1.0
+        var layer_OpenStreetMap_0 = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0
         });
         layer_OpenStreetMap_0.addTo(map);
         map.addLayer(layer_OpenStreetMap_0);
@@ -85,7 +80,7 @@
                         <td colspan="2"><strong>Title</strong><br />' + (feature.properties['Title'] !== null ? Autolinker.link(String(feature.properties['Title'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Council Me</strong><br />' + (feature.properties['Council Me'] !== null ? Autolinker.link(String(feature.properties['Council Me'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Council Me'] !== null ? Autolinker.link(String(feature.properties['Council Me'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>photo</strong><br />' + (feature.properties['photo'] !== null ? Autolinker.link(String(feature.properties['photo'])) : '') + '</td>\
@@ -103,10 +98,10 @@
                         <td colspan="2"><strong>BPAC Email</strong><br />' + (feature.properties['BPAC Email'] !== null ? Autolinker.link(String(feature.properties['BPAC Email'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>photo_2</strong><br />' + (feature.properties['photo_2'] !== null ? Autolinker.link(String(feature.properties['photo_2'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['photo_2'] !== null ? Autolinker.link(String(feature.properties['photo_2'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>District</strong><br />' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -234,7 +229,10 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>id</strong><br />' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['name'] !== null ? Autolinker.link(String(feature.properties['name'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -280,6 +278,9 @@
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CLASS'] !== null ? Autolinker.link(String(feature.properties['CLASS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['desc'] !== null ? Autolinker.link(String(feature.properties['desc'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
