@@ -23,6 +23,7 @@
             padding-right: 10px;
         }
         .leaflet-popup-content {
+            width: 170px;
             height:auto !important;
             padding-right:10px;
         }
