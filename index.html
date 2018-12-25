@@ -39,9 +39,11 @@
         function highlightFeature(e) {
             highlightLayer = e.target;
 
-            if (e.target.feature.geometry.type !== 'LineString') {
+            if (e.target.feature.geometry.type === 'LineString') 
+            {
               highlightLayer.setStyle({
                 color: '#ffff00',
+                fillOpacity: 0.6
               });
             } else {
               highlightLayer.setStyle({
