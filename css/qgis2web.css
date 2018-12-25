@@ -28,6 +28,7 @@
             height:auto !important;
             padding-left:8px;
             padding-right:8px;
+                border: none;
         }
         .leaflet-tooltip {
             background: none;
