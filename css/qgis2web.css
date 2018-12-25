@@ -31,6 +31,15 @@
             padding-right:8px;
                 border: none;
         }
+               else if (e.target.feature.geometry.type === 'MultiPolygon') 
+            {
+            text-align: center;
+            width: auto !important;
+            height:auto !important;
+            padding-left:8px;
+            padding-right:8px;
+                border: none;
+        }
         .leaflet-tooltip {
             background: none;
             box-shadow: none;
