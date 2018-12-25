@@ -92,10 +92,10 @@
                         <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? Autolinker.link(String(feature.properties['Email'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>BPAC Representative</strong><br />' + (feature.properties['BPAC Rep'] !== null ? Autolinker.link(String(feature.properties['BPAC Rep'])) : '') + '</td>\
+                        <td colspan="2"><strong>BPAC Rep.</strong><br />' + (feature.properties['BPAC Rep'] !== null ? Autolinker.link(String(feature.properties['BPAC Rep'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>BPAC Representative Email</strong><br />' + (feature.properties['BPAC Email'] !== null ? Autolinker.link(String(feature.properties['BPAC Email'])) : '') + '</td>\
+                        <td colspan="2"><strong>BPAC Rep. Email</strong><br />' + (feature.properties['BPAC Email'] !== null ? Autolinker.link(String(feature.properties['BPAC Email'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
