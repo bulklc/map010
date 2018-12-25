@@ -39,13 +39,14 @@
         function highlightFeature(e) {
             highlightLayer = e.target;
 
-            if (e.target.feature.geometry.type === 'LineString') 
+            if (e.target.feature.geometry.type === 'MultiLineString') 
             {
               highlightLayer.setStyle({
                 color: '#ffff00',
                 fillOpacity: 0.6
               });
-            } else {
+            } else if (e.target.feature.geometry.type === 'MultiPolygon') 
+            {
               highlightLayer.setStyle({
                 fillColor: '#ffff00',
                 fillOpacity: 1
