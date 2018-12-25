@@ -22,7 +22,8 @@
             background: #fff;
             padding-right: 10px;
         }
-        .leaflet-popup-content {
+        .leaflet-popup-content if (e.target.feature.geometry.type === 'MultiLineString') 
+            {
             text-align: center;
             width: auto !important;
             height:auto !important;
