@@ -109,11 +109,11 @@
                 return {
                 pane: 'pane_001_districts_1',
                 opacity: 1,
-                color: 'rgba(56,128,54,1.0)',
+                color: 'rgba(75,75,75,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 2, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,127,0,0.25098039215686274)',
@@ -123,11 +123,11 @@
                 return {
                 pane: 'pane_001_districts_1',
                 opacity: 1,
-                color: 'rgba(56,128,54,1.0)',
+                color: 'rgba(75,75,75,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 2, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(195,100,40,0.25098039215686274)',
@@ -137,11 +137,11 @@
                 return {
                 pane: 'pane_001_districts_1',
                 opacity: 1,
-                color: 'rgba(56,128,54,1.0)',
+                color: 'rgba(75,75,75,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 2.0, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(134,74,80,0.25098039215686274)',
@@ -151,11 +151,11 @@
                 return {
                 pane: 'pane_001_districts_1',
                 opacity: 1,
-                color: 'rgba(56,128,54,1.0)',
+                color: 'rgba(75,75,75,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 2.0, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(73,47,120,0.25098039215686274)',
@@ -165,11 +165,11 @@
                 return {
                 pane: 'pane_001_districts_1',
                 opacity: 1,
-                color: 'rgba(56,128,54,1.0)',
+                color: 'rgba(75,75,75,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 2.0, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(125,40,89,0.25098039215686274)',
@@ -179,11 +179,11 @@
                 return {
                 pane: 'pane_001_districts_1',
                 opacity: 1,
-                color: 'rgba(56,128,54,1.0)',
+                color: 'rgba(75,75,75,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 2.0, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(176,33,58,0.25098039215686274)',
@@ -193,11 +193,11 @@
                 return {
                 pane: 'pane_001_districts_1',
                 opacity: 1,
-                color: 'rgba(56,128,54,1.0)',
+                color: 'rgba(75,75,75,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 2.0, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(227,26,28,0.25098039215686274)',
@@ -235,34 +235,34 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_002_rail_2_0() {
-            return {
-                pane: 'pane_002_rail_2',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 2.0,
-                fillOpacity: 0,
-            }
-        }
-        function style_002_rail_2_1() {
-            return {
-                pane: 'pane_002_rail_2',
-            }
-        }
-        map.createPane('pane_002_rail_2');
-        map.getPane('pane_002_rail_2').style.zIndex = 402;
-        map.getPane('pane_002_rail_2').style['mix-blend-mode'] = 'normal';
-        var layer_002_rail_2 = new L.geoJson.multiStyle(json_002_rail_2, {
-            attribution: '',
-            pane: 'pane_002_rail_2',
-            onEachFeature: pop_002_rail_2,
-            styles: [style_002_rail_2_0,style_002_rail_2_1,]
-        });
-        bounds_group.addLayer(layer_002_rail_2);
-        map.addLayer(layer_002_rail_2);
+    //    function style_002_rail_2_0() {
+    //        return {
+    //           pane: 'pane_002_rail_2',
+    //            opacity: 1,
+    //            color: 'rgba(0,0,0,1.0)',
+    //            dashArray: '',
+    //           lineCap: 'round',
+    //           lineJoin: 'round',
+    //            weight: 2.0,
+    //          fillOpacity: 0,
+    //        }
+    //    }
+    //    function style_002_rail_2_1() {
+    //        return {
+    //            pane: 'pane_002_rail_2',
+    //        }
+    //    }
+    //    map.createPane('pane_002_rail_2');
+    //   map.getPane('pane_002_rail_2').style.zIndex = 402;
+    //    map.getPane('pane_002_rail_2').style['mix-blend-mode'] = 'normal';
+    //    var layer_002_rail_2 = new L.geoJson.multiStyle(json_002_rail_2, {
+    //       attribution: '',
+    //      pane: 'pane_002_rail_2',
+    //     onEachFeature: pop_002_rail_2,
+    //        styles: [style_002_rail_2_0,style_002_rail_2_1,]
+    //    });
+    //    bounds_group.addLayer(layer_002_rail_2);
+    //    map.addLayer(layer_002_rail_2);
         function pop_006_bike_lanes_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -332,7 +332,7 @@
         bounds_group.addLayer(layer_006_bike_lanes_3);
         map.addLayer(layer_006_bike_lanes_3);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Bicycle Lanes<br /><table><tr><td style="text-align: center;"><img src="legend/006_bike_lanes_3_I0.png" /></td><td>Class I</td></tr><tr><td style="text-align: center;"><img src="legend/006_bike_lanes_3_II1.png" /></td><td>Class II</td></tr><tr><td style="text-align: center;"><img src="legend/006_bike_lanes_3_III2.png" /></td><td>Class III</td></tr></table>': layer_006_bike_lanes_3,'<img src="legend/002_rail_2.png" /> 002_rail': layer_002_rail_2,'District Boundaries<br /><table><tr><td style="text-align: center;"><img src="legend/001_districts_1_1001860.png" /></td><td>District 1</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_1862711.png" /></td><td>District 2</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_2713572.png" /></td><td>District 3</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_3574433.png" /></td><td>District 4</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_4435294.png" /></td><td>District 5</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_5296145.png" /></td><td>District 6</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_6147006.png" /></td><td>District 7</td></tr></table>': layer_001_districts_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Bicycle Lanes<br /><table><tr><td style="text-align: center;"><img src="legend/006_bike_lanes_3_I0.png" /></td><td>Class I</td></tr><tr><td style="text-align: center;"><img src="legend/006_bike_lanes_3_II1.png" /></td><td>Class II</td></tr><tr><td style="text-align: center;"><img src="legend/006_bike_lanes_3_III2.png" /></td><td>Class III</td></tr></table>': layer_006_bike_lanes_3,'District Boundaries<br /><table><tr><td style="text-align: center;"><img src="legend/001_districts_1_1001860.png" /></td><td>District 1</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_1862711.png" /></td><td>District 2</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_2713572.png" /></td><td>District 3</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_3574433.png" /></td><td>District 4</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_4435294.png" /></td><td>District 5</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_5296145.png" /></td><td>District 6</td></tr><tr><td style="text-align: center;"><img src="legend/001_districts_1_6147006.png" /></td><td>District 7</td></tr></table>': layer_001_districts_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         document.querySelector(".leaflet-popup-pane").addEventListener("load", function (event) {
   var tagName = event.target.tagName,
