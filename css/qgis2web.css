@@ -24,9 +24,10 @@
         }
         .leaflet-popup-content
             {
+            white-space: nowrap;
             text-align: center !important;
-            width: 150px !important;
-            height:auto !important;
+            width: auto !important;
+            height: auto !important;
             padding-left:8px;
             padding-right:8px;
                 border: none;
